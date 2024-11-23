@@ -1,36 +1,83 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+    <div class="content-container">
+        <h1>　ポートフォリオ</h1>
+    </div>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>マイポートフォリオ</title>
-    <link rel="stylesheet" href="style.css">
+    <title>ポートフォリオ</title>
+    <style>
+        body {
+            background-color: #f0f8ff; /* AliceBlue */
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #003366; /* Dark Blue */
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+        section {
+            padding: 1em 2em;
+        }
+        h1, h2, h3 {
+            color: #003366; /* Dark Blue */
+        }
+        a {
+            color: #0066cc; /* Medium Blue */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .project {
+            margin-bottom: 2em;
+        }
+        .screenshot {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
+
     <header>
-        <h1>マイポートフォリオ</h1>
+        <h1>ポートフォリオ</h1>
     </header>
-    <nav>
+
+    <section>
+        <h2>自己紹介</h2>
+        <p><strong>学校, 年齢:</strong> 高専生（17歳）</p>
+        <p>知能情報コースに所属しています。</p>
+    </section>
+
+    <section>
+        <h2>プロジェクト一覧</h2>
+
+        <div class="project">
+            <h3>課題04のPythonプログラム概要</h3>
+            <p>オセロを遊ぶことができます。ルールは通常のオセロと同様です。</p>
+            <p><a href=https://colab.research.google.com/drive/1f8ZtMWUz8uaPC0JIRNRakRFn9mr3pofc?hl=ja>リンク</a></p>
+        </div>
+
+        <div class="project">
+            <h3>高専祭プロジェクトでの活動</h3>
+            <p>高専祭では、<strong>ノベルゲーム</strong>のキャラクター構想や設定を担当しました。<br>ゲーム画面↓ ↓ ↓</p>
+            <img src="https://raw.githubusercontent.com/optibeeprime/my-portfolio/refs/heads/main/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202024-11-23%20202758.png" width="400" height="278" alt="ゲームのスクリーンショット" class="screenshot">
+        </div>
+    </section>
+
+    <section>
+        <h2>経験</h2>
         <ul>
-            <li><a href="#internship">インターンシップ</a></li>
-            <li><a href="#jobs">就職</a></li>
-            <li><a href="#education">進学</a></li>
+            <li><strong>プログラミング言語:</strong> Python言語, Arduino言語, Scratch</li>
+            <li><strong>ソフトウェア・ウェブサービス:</strong> Git/GitHub, VSCode, Arduino, Deeds-DCS, MakeCode for micro:bit, Tinkercad</li>
         </ul>
-    </nav>
-    <section id="internship">
-        <h2>インターンシップ</h2>
-        <p>ここにインターンシップの情報を追加する。</p>
     </section>
-    <section id="jobs">
-        <h2>就職</h2>
-        <p>ここに就職活動の情報を追加する。</p>
-    </section>
-    <section id="education">
-        <h2>進学</h2>
-        <p>ここに進学に関する情報を追加する。</p>
-    </section>
-    <footer>
-        <p>© 2023 マイポートフォリオ</p>
-    </footer>
+
 </body>
 </html>
