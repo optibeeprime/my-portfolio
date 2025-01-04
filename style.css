@@ -3,80 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koshiro's Portfolio</title>
-    <!-- Google Fontsのインポート -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Raleway:wght@700&display=swap" rel="stylesheet">
+    <title>ポートフォリオ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #f4f4f9; /* 背景色を少しオシャレに */
-            color: #333;
-            font-family: 'Roboto', sans-serif; /* メインのフォント */
+            background-color: #fafafa; /* 少し暗い背景色 */
+            color: #444; /* テキストカラー */
+            font-family: 'Poppins', sans-serif; /* モダンなフォント */
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center; /* コンテンツを中央寄せ */
+            justify-content: center;
         }
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 0 1em;
+            padding: 2em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: #fff;
         }
         header {
-            background-color: #004c99; /* 鮮やかな青 */
-            color: #ffffff;
-            padding: 1.5em 0;
+            background-color: #0066cc; /* 鮮やかなブルー */
+            color: #fff;
+            padding: 1.5em;
             text-align: center;
-            font-family: 'Raleway', sans-serif; /* 見出し用のおしゃれフォント */
+            border-radius: 8px 8px 0 0;
         }
-        section {
-            padding: 1.5em 0;
-        }
-        h1 {
-            color: white;
-            font-size: 2em;
-        }
-        h2, h3 {
-            color: #003366;
-            font-family: 'Raleway', sans-serif;
+        h1, h2, h3 {
+            color: #0066cc;
+            margin: 0.5em 0;
         }
         a {
-            color: #0066cc;
+            color: #e63946; /* 魅力的な赤 */
             text-decoration: none;
+            transition: all 0.3s ease;
         }
         a:hover {
             text-decoration: underline;
+            color: #d62828;
+        }
+        section {
+            margin-bottom: 2em;
+            padding: 1em;
+            background: #f1f1f1;
+            border-radius: 8px;
+            position: relative;
         }
         .project {
             margin-bottom: 2em;
-            background-color: #ffffff;
             padding: 1em;
+            background: #e3f2fd; /* 軽い青背景 */
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         .screenshot {
             max-width: 100%;
             height: auto;
-            margin-top: 1em;
-            border-radius: 4px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         ul {
-            list-style-type: none;
-            padding: 0;
+            padding-left: 20px;
         }
         li {
             margin-bottom: 0.5em;
-            padding: 0.5em;
-            background-color: #e9ecef;
-            border-radius: 4px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Koshiro's Portfolio</h1>
+            <h1>ポートフォリオ</h1>
         </header>
-        
+
         <section>
             <h2>自己紹介</h2>
             <p><strong>学校, 年齢:</strong> 高専生（17歳）</p>
@@ -100,5 +98,12 @@
         </section>
 
         <section>
-            <h2>経験</h2>
+            <h2            <h2>経験</h2>
             <ul>
+                <li><strong>プログラミング言語:</strong> Python言語, Arduino言語, Scratch</li>
+                <li><strong>ソフトウェア・ウェブサービス:</strong> Git/GitHub, VSCode, Arduino, Deeds-DCS, MakeCode for micro:bit, Tinkercad</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
