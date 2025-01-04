@@ -1,7 +1,7 @@
 body {
-    background-color: #fafafa; /* 少し暗い背景色 */
+    background-color: #fafafa; /* 背景色 */
     color: #444; /* テキストカラー */
-    font-family: 'Poppins', sans-serif; /* モダンなフォント */
+    font-family: 'Poppins', sans-serif; /* フォント */
     margin: 0;
     padding: 0;
     display: flex;
@@ -15,8 +15,8 @@ body {
     background: #fff;
 }
 header {
-    background-color: #0066cc; /* 背景色はそのまま */
-    color: #fff; /* 基本のテキストカラーを白 */
+    background-color: #0066cc; 
+    color: #fff; 
     padding: 1.5em;
     text-align: center;
     border-radius: 8px 8px 0 0;
@@ -27,14 +27,14 @@ header h1:first-child { /* "Koshiro's Portfolio" に対するスタイル */
     font-size: 2em;
     font-weight: 400;
     margin: 0;
-    color: #ffd700; /* ゴールドに近い黄色で文字を目立たせます */
+    color: #ffd700; 
 }
 h1, h2, h3 {
     color: #0066cc;
     margin: 0.5em 0;
 }
 a {
-    color: #e63946; /* 魅力的な赤 */
+    color: #e63946;
     text-decoration: none;
     transition: all 0.3s ease;
 }
@@ -52,7 +52,7 @@ section {
 .project {
     margin-bottom: 2em;
     padding: 1em;
-    background: #e3f2fd; /* 軽い青背景 */
+    background: #e3f2fd; 
     border-radius: 8px;
 }
 .screenshot {
