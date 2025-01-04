@@ -73,15 +73,8 @@ li {
     transform: translateY(20px);
     animation: fadeIn 1s ease-out forwards; /* 1秒かけてアニメーション */
 }
-
-/* フェードインキーアニメーション */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
