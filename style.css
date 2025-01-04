@@ -21,6 +21,12 @@ header {
     text-align: center;
     border-radius: 8px 8px 0 0;
 }
+header h1:first-child { /* Koshiro's Portfolioに対するスタイル */
+    font-family: 'Merriweather', serif;
+    font-size: 2em;
+    font-weight: 400;
+    margin: 0;
+}
 h1, h2, h3 {
     color: #0066cc;
     margin: 0.5em 0;
