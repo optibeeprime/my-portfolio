@@ -15,17 +15,19 @@ body {
     background: #fff;
 }
 header {
-    background-color: #0066cc; /* 鮮やかなブルー */
-    color: #fff;
+    background-color: #0066cc; /* 背景色はそのまま */
+    color: #fff; /* 基本のテキストカラーを白 */
     padding: 1.5em;
     text-align: center;
     border-radius: 8px 8px 0 0;
 }
-header h1:first-child { /* Koshiro's Portfolioに対するスタイル */
+
+header h1:first-child { /* "Koshiro's Portfolio" に対するスタイル */
     font-family: 'Merriweather', serif;
     font-size: 2em;
     font-weight: 400;
     margin: 0;
+    color: #ffd700; /* ゴールドに近い黄色で文字を目立たせます */
 }
 h1, h2, h3 {
     color: #0066cc;
