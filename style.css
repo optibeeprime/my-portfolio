@@ -1,109 +1,61 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ポートフォリオ</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background-color: #fafafa; /* 少し暗い背景色 */
-            color: #444; /* テキストカラー */
-            font-family: 'Poppins', sans-serif; /* モダンなフォント */
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2em;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background: #fff;
-        }
-        header {
-            background-color: #0066cc; /* 鮮やかなブルー */
-            color: #fff;
-            padding: 1.5em;
-            text-align: center;
-            border-radius: 8px 8px 0 0;
-        }
-        h1, h2, h3 {
-            color: #0066cc;
-            margin: 0.5em 0;
-        }
-        a {
-            color: #e63946; /* 魅力的な赤 */
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        a:hover {
-            text-decoration: underline;
-            color: #d62828;
-        }
-        section {
-            margin-bottom: 2em;
-            padding: 1em;
-            background: #f1f1f1;
-            border-radius: 8px;
-            position: relative;
-        }
-        .project {
-            margin-bottom: 2em;
-            padding: 1em;
-            background: #e3f2fd; /* 軽い青背景 */
-            border-radius: 8px;
-        }
-        .screenshot {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        ul {
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 0.5em;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>ポートフォリオ</h1>
-        </header>
-
-        <section>
-            <h2>自己紹介</h2>
-            <p><strong>学校, 年齢:</strong> 高専生（17歳）</p>
-            <p>知能情報コースに所属しています。</p>
-        </section>
-
-        <section>
-            <h2>プロジェクト一覧</h2>
-
-            <div class="project">
-                <h3>課題04のPythonプログラム概要</h3>
-                <p>オセロを遊ぶことができます。ルールは通常のオセロと同様です。</p>
-                <p><a href="https://colab.research.google.com/drive/1f8ZtMWUz8uaPC0JIRNRakRFn9mr3pofc?hl=ja">リンク</a></p>
-            </div>
-
-            <div class="project">
-                <h3>高専祭プロジェクトでの活動</h3>
-                <p>高専祭では、<strong>ノベルゲーム</strong>のキャラクター構想や設定を担当しました。<br>ゲーム画面↓ ↓ ↓</p>
-                <img src="https://raw.githubusercontent.com/optibeeprime/my-portfolio/refs/heads/main/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202024-11-23%20202758.png" width="400" height="278" alt="ゲームのスクリーンショット" class="screenshot">
-            </div>
-        </section>
-
-        <section>
-            <h2            <h2>経験</h2>
-            <ul>
-                <li><strong>プログラミング言語:</strong> Python言語, Arduino言語, Scratch</li>
-                <li><strong>ソフトウェア・ウェブサービス:</strong> Git/GitHub, VSCode, Arduino, Deeds-DCS, MakeCode for micro:bit, Tinkercad</li>
-            </ul>
-        </section>
-    </div>
-</body>
-</html>
+body {
+    background-color: #fafafa; /* 少し暗い背景色 */
+    color: #444; /* テキストカラー */
+    font-family: 'Poppins', sans-serif; /* モダンなフォント */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #fff;
+}
+header {
+    background-color: #0066cc; /* 鮮やかなブルー */
+    color: #fff;
+    padding: 1.5em;
+    text-align: center;
+    border-radius: 8px 8px 0 0;
+}
+h1, h2, h3 {
+    color: #0066cc;
+    margin: 0.5em 0;
+}
+a {
+    color: #e63946; /* 魅力的な赤 */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+a:hover {
+    text-decoration: underline;
+    color: #d62828;
+}
+section {
+    margin-bottom: 2em;
+    padding: 1em;
+    background: #f1f1f1;
+    border-radius: 8px;
+    position: relative;
+}
+.project {
+    margin-bottom: 2em;
+    padding: 1em;
+    background: #e3f2fd; /* 軽い青背景 */
+    border-radius: 8px;
+}
+.screenshot {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+ul {
+    padding-left: 20px;
+}
+li {
+    margin-bottom: 0.5em;
+}
