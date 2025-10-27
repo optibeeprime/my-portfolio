@@ -10,17 +10,24 @@
 <body>
     <div class="container">
         <header>
-            <h1>Koshiro's Portfolio</h1> <!-- 追加した部分 -->
+            <h1>Koshiro's Portfolio</h1>
             <h1>ポートフォリオ</h1>
         </header>
 
-        <section>
+        <!-- ナビゲーションバー -->
+        <nav class="nav">
+            <a href="#about">自己紹介</a>
+            <a href="#projects">プロジェクト一覧</a>
+            <a href="#experience">経験</a>
+        </nav>
+
+        <section id="about">
             <h2>自己紹介</h2>
             <p><strong>学校, 年齢:</strong> 高専生（17歳）</p>
             <p>知能情報コースに所属しています。</p>
         </section>
 
-        <section>
+        <section id="projects">
             <h2>プロジェクト一覧</h2>
 
             <div class="project">
@@ -40,61 +47,36 @@
                 <img src="https://raw.githubusercontent.com/optibeeprime/my-portfolio/refs/heads/main/fileapp.png" width="400" height="278" alt="スクリーンショット" class="screenshot">
                 <img src="https://raw.githubusercontent.com/optibeeprime/my-portfolio/refs/heads/main/chose.png" width="400" height="278" alt="スクリーンショット" class="screenshot">
                 <img src="https://raw.githubusercontent.com/optibeeprime/my-portfolio/refs/heads/main/setting.png" width="400" height="278" alt="スクリーンショット" class="screenshot">
-
-                <p>このアプリは複数の様々なファイル(画像、音楽、動画、ドキュメントなど)を自動的にフォルダに分類します。<br>また、重複ファイルを検出する機能も付いています。</p>
-                <p>また、設定から英語に切り替えることも可能です。<br>これは英語に設定したときの画面です。</p>
-                <img src="https://raw.githubusercontent.com/optibeeprime/my-portfolio/refs/heads/main/file4.png" width="400" height="278" alt="スクリーンショット" class="screenshot">
-                <p>最初にモードタブで「ファイルの分別」か「重複ファイルの確認」のどちらを行うかを選択します。<br>最後に適用をクリックしてください。
-                    <br>次に、ファイルタブの「フォルダーの選択」からファイルの分別または重複ファイルの確認を行いたいフォルダーを選択してください。
-                    <br>成功すると確認メッセージが表示されます。
-                <p>以下のリンクから詳細なアプリケーションの説明を見ることができます。</p>
-                <p><a href="https://optibeeprime.github.io/FileOrganizer/">プロジェクトリンク</a></p>
-                <p>また、コードをこちらで公開しています。</p>
-                <p><a href="https://github.com/optibeeprime/file-app-code">コード</a></p>
+                <p>このアプリは複数の様々なファイルを自動的に分類します。重複ファイルの検出機能も搭載。</p>
+                <p><a href="https://optibeeprime.github.io/FileOrganizer/">プロジェクトリンク</a> / <a href="https://github.com/optibeeprime/file-app-code">コード</a></p>
             </div>
 
             <div class="project">
-                <h3>歌詞表示機能付き音楽アプリ<br>制作時期: 2025年2月<br>制作時間: 約14時間</h3>
-                <h3>アプリ名: Lyrics-Player</h3>
-                <p>このアプリは歌詞表示機能が付いた音楽プレイヤーです。<br>歌詞を簡単に設定し表示することができます。<br>またlrcファイルにも対応しています。<strong>※lrcファイルは音楽ファイルと同じ名前にしてください。</strong></p>
-                <h3>使い方</h3>
-                <div style="text-align: center;"><img src="https://raw.githubusercontent.com/optibeeprime/my-portfolio/refs/heads/main/music0.png" width="520" height="361" alt="スクリーンショット" class="screenshot"></div>
-                <p>1. 「音楽を読み込む」から音楽ファイルを読み込みます。<br>音楽ファイルはwavとmp3に対応しています。
-                    <br><strong>注意: mp3ファイルは圧縮形式によっては正常に動作しないことがあります。そのためwavファイルを推奨しています。</strong>
-                    <div style="text-align: center;"><img src="https://raw.githubusercontent.com/optibeeprime/my-portfolio/refs/heads/main/music1.png" width="520" height="361" alt="スクリーンショット" class="screenshot"></div>
-                    <br>画像は例としてDr. Dre ft. Snoop Doggの 「Still D.R.E.」を読み込んでいます。
-                    <br>音楽を読み込めたらLoaded "ファイル名"と表示されます。<br>2. 「再生」をクリックして音楽を再生します。
-                </p>
-                <h3>歌詞の入れ方</h3>
-                    <p>.lrcの読み込みにも対応していますが、手動で歌詞を入れることも可能です。<br>まず、再生中に歌詞を入れたいタイミングで「歌詞を入力」の欄に歌詞を入力します。<br>歌詞はワンフレーズずつ入力
-                        していく形になります。<br>歌詞を入力できたら、「タイムスタンプを追加」をクリックします。</p>
-                <div style="text-align: center;"><img src="https://raw.githubusercontent.com/optibeeprime/my-portfolio/refs/heads/main/music2.png" width="520" height="361" alt="スクリーンショット" class="screenshot"></div>
-                <p>画像のように歌詞を入力できます。</p>
-                <h3>動作している様子の動画</h3>
-                <video src="https://github.com/user-attachments/assets/d2556b04-7192-4827-89f2-d911bd57be88" controls="controls" width="100%" height="100%"></video>
-                <p>歌詞が音楽に合わせて表示されています。</p>
-                <p>また、コードをこちらで公開しています。</p>
+                <h3>歌詞表示機能付き音楽アプリ「Lyrics-Player」</h3>
+                <p>歌詞表示機能付き音楽プレイヤー。lrcファイル対応、手動入力も可能。</p>
+                <video src="https://github.com/user-attachments/assets/d2556b04-7192-4827-89f2-d911bd57be88" controls width="100%" height="100%"></video>
                 <p><a href="https://github.com/optibeeprime/Lyrics-Player">コード</a></p>
             </div>
-            
         </section>
 
-        <section>
+        <section id="experience">
             <h2>経験</h2>
             <ul>
-                <li><strong>プログラミング言語:</strong> Python言語, Arduino言語, Scratch</li>
-                <li><strong>ソフトウェア・ウェブサービス:</strong> Git/GitHub, VSCode, Arduino, Deeds-DCS, MakeCode for micro:bit, Tinkercad</li>
+                <li><strong>プログラミング言語:</strong> Python, Arduino, Scratch</li>
+                <li><strong>ツール:</strong> Git/GitHub, VSCode, Arduino, MakeCode, Tinkercad</li>
             </ul>
         </section>
     </div>
+
     <script>
+        // フェードインアニメーション
         document.addEventListener('DOMContentLoaded', () => {
             const elements = document.querySelectorAll('.fade-in');
-            elements.forEach((element, index) => {
+            elements.forEach((el, i) => {
                 setTimeout(() => {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }, index * 500); // 各要素に500msずつ遅延
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, i * 500);
             });
         });
     </script>
