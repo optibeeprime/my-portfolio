@@ -1,3 +1,5 @@
+/* === Liquid Glass Style Portfolio === */
+
 body {
     background: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
     color: #333;
@@ -8,96 +10,120 @@ body {
     justify-content: center;
     min-height: 100vh;
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 
+/* === Container === */
 .container {
-    max-width: 850px;
+    max-width: 800px;
     margin: 2em auto;
     padding: 2em;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.45);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
+/* === Header === */
 header {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(0, 102, 204, 0.6);
     color: #fff;
     padding: 2em 1.5em;
     text-align: center;
-    border-radius: 16px;
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.2),
-                0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    border-radius: 16px 16px 0 0;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 102, 204, 0.3);
 }
 
 header h1:first-child {
     font-family: 'Merriweather', serif;
-    font-size: 2em;
+    font-size: 2.2em;
     font-weight: 400;
     margin: 0;
     color: #ffd700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 h1, h2, h3 {
-    color: #007aff;
+    color: #0066cc;
     margin: 0.5em 0;
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
+/* === Links === */
 a {
-    color: #007aff;
+    color: #0066cc;
     text-decoration: none;
-    font-weight: 500;
+    position: relative;
     transition: all 0.3s ease;
 }
-
 a:hover {
+    color: #003366;
     text-decoration: underline;
-    color: #0056d6;
 }
 
+/* === Sections === */
 section {
     margin-bottom: 2em;
     padding: 1.5em;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+section:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
+/* === Project Cards === */
 .project {
     margin-bottom: 2em;
     padding: 1.5em;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    background: rgba(227, 242, 253, 0.55);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
+/* === Screenshots === */
 .screenshot {
     max-width: 100%;
     height: auto;
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.screenshot:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
 }
 
+/* === Lists === */
 ul {
     padding-left: 20px;
 }
-
 li {
     margin-bottom: 0.5em;
 }
 
+/* === Fade-in Animation === */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
