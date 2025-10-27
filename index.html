@@ -1,80 +1,84 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ポートフォリオ</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Merriweather:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポートフォリオ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Merriweather:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <header id="header">
-      <h1>Koshiro's Portfolio</h1>
-      <h1>ポートフォリオ</h1>
-      
-      <nav class="nav">
-        <a href="#intro">自己紹介</a>
-        <a href="#projects">プロジェクト一覧</a>
-        <a href="#experience">経験</a>
-      </nav>
-    </header>
+    <div class="container">
+        <header>
+            <h1>Koshiro's Portfolio</h1>
+            <h1>ポートフォリオ</h1>
+        </header>
 
-    <section id="intro">
-      <h2>自己紹介</h2>
-      <p><strong>学校, 年齢:</strong> 高専生（17歳）</p>
-      <p>知能情報コースに所属しています。</p>
-    </section>
+        <!-- ナビゲーションバー -->
+        <nav class="nav">
+            <a href="#about">自己紹介</a>
+            <a href="#projects">プロジェクト一覧</a>
+            <a href="#experience">経験</a>
+        </nav>
 
-    <section id="projects">
-      <h2>プロジェクト一覧</h2>
-      <div class="project">
-        <h3>オセロゲーム</h3>
-        <p>オセロを遊ぶことができます。</p>
-      </div>
-    </section>
+        <section id="about">
+            <h2>自己紹介</h2>
+            <p><strong>学校, 年齢:</strong> 高専生（17歳）</p>
+            <p>知能情報コースに所属しています。</p>
+        </section>
 
-    <section id="experience">
-      <h2>経験</h2>
-      <ul>
-        <li><strong>プログラミング言語:</strong> Python, Arduino, Scratch</li>
-        <li><strong>ツール:</strong> Git/GitHub, VSCode, Arduino</li>
-      </ul>
-    </section>
-  </div>
+        <section id="projects">
+            <h2>プロジェクト一覧</h2>
 
-  <audio id="bgm" src="bgm.mp3"></audio>
+            <div class="project">
+                <h3>オセロゲーム</h3>
+                <p>オセロを遊ぶことができます。ルールは通常のオセロと同様です。</p>
+                <p><a href="https://colab.research.google.com/drive/1f8ZtMWUz8uaPC0JIRNRakRFn9mr3pofc?hl=ja">リンク</a></p>
+            </div>
 
-  <script>
-    // スムーズスクロール
-    document.querySelectorAll('.nav a').forEach(anchor => {
-      anchor.addEventListener('click', e => {
-        e.preventDefault();
-        const target = document.querySelector(anchor.getAttribute('href'));
-        target.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
+            <div class="project">
+                <h3>高専祭プロジェクトでの活動</h3>
+                <p>高専祭では、<strong>ノベルゲーム</strong>のキャラクター構想や設定を担当しました。<br>ゲーム画面↓ ↓ ↓</p>
+                <img src="https://raw.githubusercontent.com/optibeeprime/my-portfolio/refs/heads/main/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202024-11-23%20202758.png" width="400" height="278" alt="ゲームのスクリーンショット" class="screenshot">
+            </div>
 
-    // 隠しコマンド (ayu)
-    let inputBuffer = '';
-    const secretCode = 'ayumi';
-    const audio = document.getElementById('bgm');
+            <div class="project">
+                <h3>ファイル整理アプリ 制作期間: 12/24~1/13</h3>
+                <img src="https://raw.githubusercontent.com/optibeeprime/my-portfolio/refs/heads/main/fileapp.png" width="400" height="278" alt="スクリーンショット" class="screenshot">
+                <img src="https://raw.githubusercontent.com/optibeeprime/my-portfolio/refs/heads/main/chose.png" width="400" height="278" alt="スクリーンショット" class="screenshot">
+                <img src="https://raw.githubusercontent.com/optibeeprime/my-portfolio/refs/heads/main/setting.png" width="400" height="278" alt="スクリーンショット" class="screenshot">
+                <p>このアプリは複数の様々なファイルを自動的に分類します。重複ファイルの検出機能も搭載。</p>
+                <p><a href="https://optibeeprime.github.io/FileOrganizer/">プロジェクトリンク</a> / <a href="https://github.com/optibeeprime/file-app-code">コード</a></p>
+            </div>
 
-    document.addEventListener('keydown', e => {
-      inputBuffer += e.key.toLowerCase();
-      if (inputBuffer.endsWith(secretCode)) {
-        document.body.classList.toggle('ayumi-mode');
-        if (document.body.classList.contains('ayumi-mode')) {
-          audio.play();
-        } else {
-          audio.pause();
-          audio.currentTime = 0;
-        }
-      }
-      if (inputBuffer.length > secretCode.length) {
-        inputBuffer = inputBuffer.slice(-secretCode.length);
-      }
-    });
-  </script>
+            <div class="project">
+                <h3>歌詞表示機能付き音楽アプリ「Lyrics-Player」</h3>
+                <p>歌詞表示機能付き音楽プレイヤー。lrcファイル対応、手動入力も可能。</p>
+                <video src="https://github.com/user-attachments/assets/d2556b04-7192-4827-89f2-d911bd57be88" controls width="100%" height="100%"></video>
+                <p><a href="https://github.com/optibeeprime/Lyrics-Player">コード</a></p>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>経験</h2>
+            <ul>
+                <li><strong>プログラミング言語:</strong> Python, Arduino, Scratch</li>
+                <li><strong>ツール:</strong> Git/GitHub, VSCode, Arduino, MakeCode, Tinkercad</li>
+            </ul>
+        </section>
+    </div>
+
+    <script>
+        // フェードインアニメーション
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach((el, i) => {
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, i * 500);
+            });
+        });
+    </script>
 </body>
 </html>
