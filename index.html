@@ -6,6 +6,31 @@
     <title>ポートフォリオ</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Merriweather:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* === テキスト爆発アニメーション === */
+        @keyframes textBurst {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+            }
+            10% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.2) rotate(5deg);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1) rotate(-3deg);
+            }
+            80% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.2) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                filter: blur(6px);
+                transform: translate(-50%, -50%) scale(3) rotate(45deg);
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -68,45 +93,6 @@
         </section>
     </div>
 
-    <script>
-        // フェードインアニメーション
-        document.addEventListener('DOMContentLoaded', () => {
-            const elements = document.querySelectorAll('.fade-in');
-            elements.forEach((el, i) => {
-                setTimeout(() => {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }, i * 500);
-            });
-        });
-    </script>
-    <script>
-        const secretCode = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
-        let input = [];
-        const audio = document.getElementById('bgm');
-        const header = document.querySelector('header');
-
-        document.addEventListener('keydown', (e) => {
-            input.push(e.key);
-            if (input.length > secretCode.length) input.shift();
-            if (secretCode.every((v, i) => v === input[i])) {
-                activateSecret();
-            }
-        });
-
-        function activateSecret() {
-            // BGM再生
-            audio.play();
-            audio.loop = true;
-
-            // ヘッダーの背景をヒョウ柄に変更
-            header.style.backgroundImage = "url('leopard.jpg')";
-            header.style.backgroundSize = "cover";
-            header.style.backgroundPosition = "center";
-            header.style.color = "#fff";
-            header.style.textShadow = "0 2px 6px rgba(0,0,0,0.6)";
-        }
-    </script>
     <audio id="bgm" src="bgm.mp3"></audio>
 
     <script>
@@ -118,7 +104,7 @@
         // Enterキーで入力ボックスを出す
         window.addEventListener("keydown", (e) => {
             if (e.key === "Enter" && !inputBox) {
-                e.preventDefault(); // 既存の動作を止める（フォーム送信など）
+                e.preventDefault(); 
                 createInputBox();
             }
         });
@@ -156,13 +142,13 @@
         }
 
         function activateSecret() {
-            // BGM再生（ユーザー操作後なので確実に再生される）
+            // === BGM再生 ===
             audio.currentTime = 0;
-            audio.loop = true;    
+            audio.loop = true;
             audio.volume = 0.4;
             audio.play().catch(err => console.warn("Autoplay blocked:", err));
 
-            // ヘッダーをヒョウ柄に変更
+            // === ヘッダーをヒョウ柄に変更 ===
             header.style.backgroundImage = "url('leopard.jpg')";
             header.style.backgroundSize = "cover";
             header.style.backgroundPosition = "center";
@@ -170,14 +156,28 @@
             header.style.textShadow = "0 2px 6px rgba(0,0,0,0.7)";
             header.style.transition = "background 0.6s ease-in-out";
 
+            // === 派手な文字エフェクト ===
+            const text = document.createElement("div");
+            text.textContent = "SECRET MODE: AYU!!!";
+            Object.assign(text.style, {
+                position: "fixed",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                color: "#ff3399",
+                fontSize: "3em",
+                fontWeight: "900",
+                fontFamily: "Poppins, sans-serif",
+                textShadow: "0 0 10px #fff, 0 0 20px #ff33cc, 0 0 40px #ff0099",
+                zIndex: "9999",
+                animation: "textBurst 5s forwards ease-out"
+            });
+            document.body.appendChild(text);
+            setTimeout(() => text.remove(), 5000);
+
             console.log("🟡 Secret mode activated!");
         }
     });
     </script>
-
-
-
-    </body>
-    
-
+</body>
 </html>
