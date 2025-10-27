@@ -107,7 +107,58 @@
             header.style.textShadow = "0 2px 6px rgba(0,0,0,0.6)";
         }
     </script>
+    <audio id="bgm" src="bgm.mp3"></audio>
 
-</body>
-<audio id="bgm" src="bgm.mp3"></audio>
+    <script>
+        let listening = false;
+        let buffer = "";
+        const header = document.querySelector("header");
+        const audio = document.getElementById("bgm");
+
+        document.addEventListener("keydown", (e) => {
+                // Enterを押したら待機状態に
+            if (e.key === "Enter") {
+                listening = true;
+                buffer = "";
+                return;
+            }
+
+            // 待機中にキー入力を記録
+            if (listening) {
+                buffer += e.key.toLowerCase();
+
+                // "ayu" が入力されたら発動
+                if (buffer === "ayu") {
+                    activateSecret();
+                    listening = false;
+                    buffer = "";
+                }
+
+                // 入力が違ったらリセット
+                if (!"ayu".startsWith(buffer)) {
+                    buffer = "";
+                }
+            }
+        });
+
+        function activateSecret() {
+            // BGMを再生
+            audio.loop = true;
+            audio.volume = 0.4;
+            audio.play();
+
+            // ヘッダーをヒョウ柄に変更
+            header.style.backgroundImage = "url('leopard.jpg')";
+            header.style.backgroundSize = "cover";
+            header.style.backgroundPosition = "center";
+            header.style.color = "#fff";
+            header.style.textShadow = "0 2px 6px rgba(0,0,0,0.7)";
+            header.style.transition = "background 0.6s ease-in-out";
+        }
+    </script>
+
+
+    </body>
+    
+
 </html>
