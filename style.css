@@ -1,5 +1,9 @@
 /* === Liquid Glass Style Portfolio === */
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
     color: #333;
@@ -39,6 +43,7 @@ header {
     box-shadow: 0 4px 16px rgba(0, 102, 204, 0.3);
 }
 
+/* Koshiro’s Portfolio 見やすく変更 */
 header h1:first-child {
     font-family: 'Merriweather', serif;
     font-size: 2.2em;
@@ -50,7 +55,6 @@ header h1:first-child {
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
 
-
 h1, h2, h3 {
     color: #0066cc;
     margin: 0.5em 0;
@@ -58,16 +62,35 @@ h1, h2, h3 {
     letter-spacing: 0.5px;
 }
 
-/* === Links === */
-a {
+/* === Navigation === */
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px) saturate(160%);
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 1em;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.nav a {
     color: #0066cc;
+    font-weight: 500;
     text-decoration: none;
-    position: relative;
+    padding: 0.3em 0.6em;
+    border-radius: 8px;
     transition: all 0.3s ease;
 }
-a:hover {
+
+.nav a:hover {
+    background: rgba(0, 102, 204, 0.15);
     color: #003366;
-    text-decoration: underline;
 }
 
 /* === Sections === */
