@@ -110,50 +110,64 @@
     <audio id="bgm" src="bgm.mp3"></audio>
 
     <script>
-        let listening = false;
-        let buffer = "";
         const header = document.querySelector("header");
         const audio = document.getElementById("bgm");
+        let inputBox = null;
 
         document.addEventListener("keydown", (e) => {
-                // Enterを押したら待機状態に
-            if (e.key === "Enter") {
-                listening = true;
-                buffer = "";
-                return;
-            }
-
-            // 待機中にキー入力を記録
-            if (listening) {
-                buffer += e.key.toLowerCase();
-
-                // "ayu" が入力されたら発動
-                if (buffer === "ayu") {
-                    activateSecret();
-                    listening = false;
-                    buffer = "";
-                }
-
-                // 入力が違ったらリセット
-                if (!"ayu".startsWith(buffer)) {
-                    buffer = "";
-                }
+            // Enterが押されたら入力ボックスを表示
+            if (e.key === "Enter" && !inputBox) {
+                createInputBox();
             }
         });
 
+        function createInputBox() {
+            inputBox = document.createElement("input");
+            inputBox.type = "text";
+            inputBox.placeholder = "コマンドを入力...";
+            inputBox.style.position = "fixed";
+            inputBox.style.top = "50%";
+            inputBox.style.left = "50%";
+            inputBox.style.transform = "translate(-50%, -50%)";
+            inputBox.style.padding = "0.8em 1.2em";
+            inputBox.style.fontSize = "1.2em";
+            inputBox.style.borderRadius = "12px";
+            inputBox.style.border = "2px solid #0066cc";
+            inputBox.style.outline = "none";
+            inputBox.style.zIndex = "9999";
+            inputBox.style.background = "rgba(255, 255, 255, 0.9)";
+            inputBox.style.boxShadow = "0 6px 20px rgba(0,0,0,0.2)";
+            document.body.appendChild(inputBox);
+            inputBox.focus();
+
+            inputBox.addEventListener("keydown", (e) => {
+                if (e.key === "Enter") {
+                    const value = inputBox.value.trim().toLowerCase();
+                    if (value === "ayu") {
+                        activateSecret();
+                    }
+                    // 入力ボックス削除
+                    inputBox.remove();
+                    inputBox = null;
+                }
+            });
+        }
+
         function activateSecret() {
-            // BGMを再生
+            // BGM再生
             audio.loop = true;
             audio.volume = 0.4;
             audio.play();
 
-            // ヘッダーをヒョウ柄に変更
+            // ヘッダーのデザインをヒョウ柄に変更
             header.style.backgroundImage = "url('leopard.jpg')";
             header.style.backgroundSize = "cover";
             header.style.backgroundPosition = "center";
             header.style.color = "#fff";
             header.style.textShadow = "0 2px 6px rgba(0,0,0,0.7)";
             header.style.transition = "background 0.6s ease-in-out";
+
+            console.log("🟡 Secret mode activated!");
         }
     </script>
 
