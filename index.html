@@ -80,6 +80,34 @@
             });
         });
     </script>
+    <script>
+        const secretCode = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+        let input = [];
+        const audio = document.getElementById('bgm');
+        const header = document.querySelector('header');
+
+        document.addEventListener('keydown', (e) => {
+            input.push(e.key);
+            if (input.length > secretCode.length) input.shift();
+            if (secretCode.every((v, i) => v === input[i])) {
+                activateSecret();
+            }
+        });
+
+        function activateSecret() {
+            // BGM再生
+            audio.play();
+            audio.loop = true;
+
+            // ヘッダーの背景をヒョウ柄に変更
+            header.style.backgroundImage = "url('leopard.jpg')";
+            header.style.backgroundSize = "cover";
+            header.style.backgroundPosition = "center";
+            header.style.color = "#fff";
+            header.style.textShadow = "0 2px 6px rgba(0,0,0,0.6)";
+        }
+    </script>
+
 </body>
 <audio id="bgm" src="bgm.mp3"></audio>
 </html>
