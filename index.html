@@ -98,12 +98,12 @@
     <script>
     document.addEventListener("DOMContentLoaded", () => {
         const header = document.querySelector("header");
-        const aboutSection = document.getElementById("about");
         const audio = document.getElementById("bgm");
         let inputBox = null;
-        let active = false; // 入力ボックス状態
-        let recordMode = false; // 演出状態
-
+        let active = false;
+        let recordMode = false;
+    
+        // === Enterキーでコマンド入力 ===
         window.addEventListener("keydown", (e) => {
             if (e.key === "Enter") {
                 e.preventDefault();
@@ -111,14 +111,14 @@
                 else removeInputBox();
             }
         });
-    
+
         function createInputBox() {
             if (inputBox) return;
             inputBox = document.createElement("input");
             Object.assign(inputBox.style, {
-                position: "absolute",
+                position: "fixed",
                 left: "50%",
-                top: "50%",
+                top: "50%", // ← ページの一番上基準の中央
                 transform: "translate(-50%, -50%)",
                 padding: "0.8em 1.2em",
                 fontSize: "1.2em",
@@ -131,12 +131,6 @@
             });
             inputBox.placeholder = "コマンドを入力...";
             document.body.appendChild(inputBox);
-
-            // 自己紹介欄中央に配置
-            const rect = aboutSection.getBoundingClientRect();
-            const offsetTop = window.scrollY + rect.top + rect.height / 2;
-            inputBox.style.top = `${offsetTop}px`;
-
             inputBox.focus();
             active = true;
 
@@ -157,6 +151,7 @@
             active = false;
         }
 
+        // === ayuモード切り替え ===
         function toggleRecordMode() {
             if (recordMode) {
                 document.querySelectorAll(".record, .album, .side-image").forEach(el => el.remove());
@@ -169,14 +164,15 @@
             }
         }
 
+        // === ayuモード発動 ===
         function activateRecordMode() {
-            // === BGM再生 ===
+            // BGM
             audio.currentTime = 0;
             audio.loop = true;
             audio.volume = 0.6;
             audio.play().catch(err => console.warn("Autoplay blocked:", err));
 
-            // === ヘッダー変更 ===
+            // ヘッダー豹柄
             header.style.backgroundImage = "url('leopard.jpg')";
             header.style.backgroundSize = "cover";
             header.style.backgroundPosition = "center";
@@ -184,27 +180,26 @@
             header.style.textShadow = "0 2px 6px rgba(0,0,0,0.7)";
             header.style.transition = "background 0.6s ease-in-out";
 
-            // === 左右エフェクト生成 ===
+            // === 左右＆中央エフェクト ===
             const leftImg = document.createElement("img");
-            leftImg.src = "ayu.png"; // ← 同じ画像で色変化
+            leftImg.src = "ayu.jpg";
             leftImg.classList.add("side-image");
 
             const rightRecord = document.createElement("div");
             rightRecord.classList.add("record");
 
-            // === 中央アルバム ===
             const album = document.createElement("img");
-            album.src = "ayu.png"; // ← 中央も同じ画像
+            album.src = "ayu.jpg";
             album.classList.add("album");
 
             document.body.append(leftImg, rightRecord, album);
 
-            // === テキスト演出 ===
+            // === タイトル演出 ===
             const text = document.createElement("div");
             text.textContent = "Ayumi Hamasaki";
             Object.assign(text.style, {
                 position: "fixed",
-                top: "50%",
+                top: "50%", // ← ページ上部の中央固定
                 left: "50%",
                 transform: "translate(-50%, -50%)",
                 color: "#ff3399",
@@ -217,11 +212,12 @@
             });
             document.body.appendChild(text);
             setTimeout(() => text.remove(), 5000);
-
+    
             console.log("🟣 Secret record mode activated!");
         }
     });
     </script>
+
 
 
 
