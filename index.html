@@ -98,23 +98,30 @@
     <script>
     document.addEventListener("DOMContentLoaded", () => {
         const header = document.querySelector("header");
+        const aboutSection = document.getElementById("about");
         const audio = document.getElementById("bgm");
         let inputBox = null;
+        let active = false; // ボックス表示状態フラグ
 
-        // Enterキーで入力ボックスを出す
+        // Enterキーで入力ボックスをトグル
         window.addEventListener("keydown", (e) => {
-            if (e.key === "Enter" && !inputBox) {
-                e.preventDefault(); 
-                createInputBox();
+            if (e.key === "Enter") {
+                e.preventDefault();
+                if (!active) {
+                    createInputBox();
+                } else {
+                    removeInputBox();
+                }
             }
         });
 
         function createInputBox() {
+            if (inputBox) return;
             inputBox = document.createElement("input");
             Object.assign(inputBox.style, {
-                position: "fixed",
-                top: "50%",
+                position: "absolute",
                 left: "50%",
+                top: "50%", // 一旦中央基準
                 transform: "translate(-50%, -50%)",
                 padding: "0.8em 1.2em",
                 fontSize: "1.2em",
@@ -127,18 +134,30 @@
             });
             inputBox.placeholder = "コマンドを入力...";
             document.body.appendChild(inputBox);
+
+            // 自己紹介セクションの中央付近に配置
+            const rect = aboutSection.getBoundingClientRect();
+            const offsetTop = window.scrollY + rect.top + rect.height / 2;
+            inputBox.style.top = `${offsetTop}px`;
+
             inputBox.focus();
+            active = true;
 
             inputBox.addEventListener("keydown", (e) => {
                 if (e.key === "Enter") {
                     const value = inputBox.value.trim().toLowerCase();
-                    if (value === "ayu") {
-                        activateSecret();
-                    }
-                    inputBox.remove();
-                    inputBox = null;
+                    if (value === "ayu") activateSecret();
+                    removeInputBox();
                 }
             });
+        }
+
+        function removeInputBox() {
+            if (inputBox) {
+                inputBox.remove();
+                inputBox = null;
+            }
+            active = false;
         }
 
         function activateSecret() {
@@ -179,5 +198,7 @@
         }
     });
     </script>
+
+
 </body>
 </html>
