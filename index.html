@@ -197,6 +197,29 @@
 
             console.log("🟡 Secret mode activated!");
         }
+            // === プロジェクト画像を変更 ===
+            const screenshots = document.querySelectorAll(".screenshot");
+
+            screenshots.forEach((img, i) => {
+        // 例: ayuモードで別画像に差し替え
+                if (i === 0) {
+                    img.src = "ayu1.jpg";  // ← ここを好きな画像に
+                } else if (i === 1) {
+                    img.src = "ayu2.jpg";
+                } else {
+                    img.src = "ayu_default.jpg";
+                }
+            });
+
+            // 変更後にアニメーションっぽくフェードイン
+            screenshots.forEach(img => {
+                img.style.transition = "opacity 1s ease";
+                img.style.opacity = "0";
+                setTimeout(() => {
+                    img.style.opacity = "1";
+                }, 100);
+            });
+
     });
     </script>
 
