@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -98,17 +99,20 @@
     <script>
     document.addEventListener("DOMContentLoaded", () => {
         const header = document.querySelector("header");
+        const aboutSection = document.getElementById("about");
         const audio = document.getElementById("bgm");
         let inputBox = null;
-        let active = false;
-        let recordMode = false;
-    
-        // === Enterキーでコマンド入力 ===
+        let active = false; // ボックス表示状態フラグ
+
+        // Enterキーで入力ボックスをトグル
         window.addEventListener("keydown", (e) => {
             if (e.key === "Enter") {
                 e.preventDefault();
-                if (!active) createInputBox();
-                else removeInputBox();
+                if (!active) {
+                    createInputBox();
+                } else {
+                    removeInputBox();
+                }
             }
         });
 
@@ -116,9 +120,9 @@
             if (inputBox) return;
             inputBox = document.createElement("input");
             Object.assign(inputBox.style, {
-                position: "fixed",
+                position: "absolute",
                 left: "50%",
-                top: "50%", // ← ページの一番上基準の中央
+                top: "50%", // 一旦中央基準
                 transform: "translate(-50%, -50%)",
                 padding: "0.8em 1.2em",
                 fontSize: "1.2em",
@@ -131,13 +135,19 @@
             });
             inputBox.placeholder = "コマンドを入力...";
             document.body.appendChild(inputBox);
+
+            // 自己紹介セクションの中央付近に配置
+            const rect = aboutSection.getBoundingClientRect();
+            const offsetTop = window.scrollY + rect.top + rect.height / 2;
+            inputBox.style.top = `${offsetTop}px`;
+
             inputBox.focus();
             active = true;
 
             inputBox.addEventListener("keydown", (e) => {
                 if (e.key === "Enter") {
                     const value = inputBox.value.trim().toLowerCase();
-                    if (value === "ayu") toggleRecordMode();
+                    if (value === "ayu") activateSecret();
                     removeInputBox();
                 }
             });
@@ -151,28 +161,14 @@
             active = false;
         }
 
-        // === ayuモード切り替え ===
-        function toggleRecordMode() {
-            if (recordMode) {
-                document.querySelectorAll(".record, .album, .side-image").forEach(el => el.remove());
-                audio.pause();
-                recordMode = false;
-                console.log("🔵 Secret record mode deactivated.");
-            } else {
-                activateRecordMode();
-                recordMode = true;
-            }
-        }
-
-        // === ayuモード発動 ===
-        function activateRecordMode() {
-            // BGM
+        function activateSecret() {
+            // === BGM再生 ===
             audio.currentTime = 0;
             audio.loop = true;
-            audio.volume = 0.6;
+            audio.volume = 0.4;
             audio.play().catch(err => console.warn("Autoplay blocked:", err));
 
-            // ヘッダー豹柄
+            // === ヘッダーをヒョウ柄に変更 ===
             header.style.backgroundImage = "url('leopard.jpg')";
             header.style.backgroundSize = "cover";
             header.style.backgroundPosition = "center";
@@ -180,26 +176,12 @@
             header.style.textShadow = "0 2px 6px rgba(0,0,0,0.7)";
             header.style.transition = "background 0.6s ease-in-out";
 
-            // === 左右＆中央エフェクト ===
-            const leftImg = document.createElement("img");
-            leftImg.src = "ayu.png";
-            leftImg.classList.add("side-image");
-
-            const rightRecord = document.createElement("div");
-            rightRecord.classList.add("record");
-
-            const album = document.createElement("img");
-            album.src = "ayu.png";
-            album.classList.add("album");
-
-            document.body.append(leftImg, rightRecord, album);
-
-            // === タイトル演出 ===
+            // === 派手な文字エフェクト ===
             const text = document.createElement("div");
             text.textContent = "Ayumi Hamasaki";
             Object.assign(text.style, {
                 position: "fixed",
-                top: "50%", // ← ページ上部の中央固定
+                top: "50%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
                 color: "#ff3399",
@@ -212,13 +194,11 @@
             });
             document.body.appendChild(text);
             setTimeout(() => text.remove(), 5000);
-    
-            console.log("🟣 Secret record mode activated!");
+
+            console.log("🟡 Secret mode activated!");
         }
     });
     </script>
-
-
 
 
 </body>
