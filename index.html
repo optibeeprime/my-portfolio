@@ -163,13 +163,13 @@
 
         // === 隠しコマンド発動処理 ===
         function activateSecret() {
-        // === BGM再生 ===
+            // BGM
             audio.currentTime = 0;
             audio.loop = true;
             audio.volume = 0.4;
             audio.play().catch(err => console.warn("Autoplay blocked:", err));
 
-            // === ヘッダーをヒョウ柄に変更 ===
+            // ヒョウ柄
             header.style.backgroundImage = "url('leopard.jpg')";
             header.style.backgroundSize = "cover";
             header.style.backgroundPosition = "center";
@@ -177,7 +177,7 @@
             header.style.textShadow = "0 2px 6px rgba(0,0,0,0.7)";
             header.style.transition = "background 0.6s ease-in-out";
 
-            // === 派手なテキスト演出 ===
+            // テキスト
             const text = document.createElement("div");
             text.textContent = "Ayumi Hamasaki";
             Object.assign(text.style, {
@@ -196,21 +196,23 @@
             document.body.appendChild(text);
             setTimeout(() => text.remove(), 5000);
 
-            // === スクリーンショット → MP4に置き換え ===
+            // 画像 → 動画
             const screenshots = document.querySelectorAll(".screenshot");
             screenshots.forEach(img => {
-                if (img.src.includes("スクリーンショット%202024-11-23%20202758.png")) {
-                    // 元画像を削除
+                if (img.src.includes("202758.png")) { // ← これでOK
                     const video = document.createElement("video");
-                    video.src = "https://optibeeprime.github.io/my-portfolio/M_2000-2001_A.remuxed.mp4.mp4"
+                    video.src = "https://optibeeprime.github.io/my-portfolio/M_2000-2001_A.remuxed.mp4"; // ←拡張子1個に直す
                     video.width = img.width;
                     video.height = img.height;
                     video.controls = true;
                     video.autoplay = true;
                     video.loop = true;
+                    video.muted = true;
                     video.style.borderRadius = "12px";
                     video.style.transition = "opacity 1s ease";
+
                     img.replaceWith(video);
+                    console.log("🎬 画像を動画に置き換えました！");
                 }
             });
 
