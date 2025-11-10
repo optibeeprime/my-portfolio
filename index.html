@@ -163,13 +163,13 @@
 
         // === 隠しコマンド発動処理 ===
         function activateSecret() {
-            // BGM
+            // === BGM再生 ===
             audio.currentTime = 0;
             audio.loop = true;
             audio.volume = 0.4;
             audio.play().catch(err => console.warn("Autoplay blocked:", err));
 
-            // ヒョウ柄
+            // === ヘッダーをヒョウ柄に変更 ===
             header.style.backgroundImage = "url('leopard.jpg')";
             header.style.backgroundSize = "cover";
             header.style.backgroundPosition = "center";
@@ -177,7 +177,7 @@
             header.style.textShadow = "0 2px 6px rgba(0,0,0,0.7)";
             header.style.transition = "background 0.6s ease-in-out";
 
-            // テキスト
+            // === 派手なテキスト演出 ===
             const text = document.createElement("div");
             text.textContent = "Ayumi Hamasaki";
             Object.assign(text.style, {
@@ -196,12 +196,23 @@
             document.body.appendChild(text);
             setTimeout(() => text.remove(), 5000);
 
-            // 画像 → 動画
-            const screenshots = document.querySelectorAll(".screenshot");
-            screenshots.forEach(img => {
-                if (img.src.includes("202758.png")) { // ← これでOK
+            // === 「高専祭プロジェクトでの活動」セクションを探す ===
+            const projectTitle = document.querySelector(".project h3");
+            if (projectTitle && projectTitle.textContent.includes("高専祭プロジェクトでの活動")) {
+                // タイトルを変更
+                projectTitle.textContent = "ayumi hamasaki countdown live 2000-2001 A";
+
+                // 次の段落（pタグ）を取得して内容を変更
+                const description = projectTitle.nextElementSibling;
+                if (description && description.tagName === "P") {
+                    description.innerHTML = "M";
+                }
+
+                // === スクリーンショット → MP4に置き換え ===
+                const img = projectTitle.parentElement.querySelector(".screenshot");
+                if (img) {
                     const video = document.createElement("video");
-                    video.src = "https://optibeeprime.github.io/my-portfolio/M_2000-2001_A.remuxed.mp4"; // ←拡張子1個に直す
+                    video.src = "https://optibeeprime.github.io/my-portfolio/M_2000-2001_A.remuxed.mp4"; // ←正しいURLに
                     video.width = img.width;
                     video.height = img.height;
                     video.controls = true;
@@ -210,13 +221,11 @@
                     video.muted = true;
                     video.style.borderRadius = "12px";
                     video.style.transition = "opacity 1s ease";
-
                     img.replaceWith(video);
-                    console.log("🎬 画像を動画に置き換えました！");
                 }
-            });
+            }
 
-            console.log("🟡 Secret mode activated!");
+            console.log("🟡 Secret mode activated (AYU version)!");
         }
     });
     </script>
