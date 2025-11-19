@@ -251,9 +251,8 @@ body {
 }
 
 /* ----------------------
-     EXPERIENCE
+     区切り線
 ----------------------- */
-
 .divider {
   width: 80%;
   height: 1px;
@@ -262,17 +261,19 @@ body {
   border-radius: 2px;
 }
 
-/* --------------- 経験セクション中央寄せ --------------- */
+/* ----------------------
+     EXPERIENCE
+----------------------- */
 #experience {
   padding: 100px 40px;
   color: #fff;
   background: #111;
-  text-align: center;        /* ← 中央寄せ */
+  text-align: center;
 }
 
 #experience ul {
-  display: inline-block;     /* ← 中央にまとまるように */
-  text-align: left;          /* ← テキストは左寄せのまま */
+  display: inline-block;
+  text-align: left;
   line-height: 2;
   margin-top: 20px;
 }
