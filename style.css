@@ -253,19 +253,26 @@ body {
 /* ----------------------
      EXPERIENCE
 ----------------------- */
+
+.divider {
+  width: 80%;
+  height: 1px;
+  background: rgba(212, 194, 122, 0.4);
+  margin: 60px auto;
+  border-radius: 2px;
+}
+
+/* --------------- 経験セクション中央寄せ --------------- */
 #experience {
   padding: 100px 40px;
   color: #fff;
   background: #111;
-}
-
-#experience h2 {
-  font-family: "Poppins", sans-serif;
-  font-size: 2rem;
-  margin-bottom: 20px;
+  text-align: center;        /* ← 中央寄せ */
 }
 
 #experience ul {
-  font-family: "Noto Sans JP", sans-serif;
+  display: inline-block;     /* ← 中央にまとまるように */
+  text-align: left;          /* ← テキストは左寄せのまま */
   line-height: 2;
+  margin-top: 20px;
 }
