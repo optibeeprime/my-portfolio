@@ -126,45 +126,74 @@
           JS
 =============================== -->
 <script>
-/* 手動スライドボタン */
-/* =============== カードごと自動スライド =============== */
+/* ====== カルーセル ====== */
 
 const carousel = document.getElementById("carousel");
 const cards = document.querySelectorAll(".work-card");
+
 let currentIndex = 0;
+let isAnimating = false; // ← スライド中の連打防止
 
-// 余白を含めたカード1枚分の幅を取得
 function getCardWidth() {
-  const card = cards[0];
-  return card.getBoundingClientRect().width + 40; // gap: 40px
+  return cards[0].getBoundingClientRect().width + 40; // gap 40px
 }
 
-// カード位置へスムーズ移動する関数
+/* スムーズにカードへスライド */
 function slideToCard(index) {
-  const targetX = index * getCardWidth();
-  carousel.scrollTo({
-    left: targetX,
-    behavior: "smooth"
-  });
+  const x = index * getCardWidth();
+  carousel.scrollTo({ left: x, behavior: "smooth" });
 }
 
-// スライドループ
+/* ====== 自動スライド（素早くスライド → 少し停止） ====== */
 function autoSlide() {
-  const cardWidth = getCardWidth();
-  const maxScroll = (cards.length - 1) * cardWidth;
-
   currentIndex++;
 
-  // 末尾の次 → 一瞬で先頭へジャンプ
+  // 末尾を超えたら先頭へ瞬間移動
   if (currentIndex >= cards.length) {
     currentIndex = 0;
-    carousel.scrollTo({ left: 0 }); // ← 即座に戻す（アニメなし）
+    carousel.scrollTo({ left: 0 }); // ← 即ジャンプ（スムーズ無し）
   } else {
-    slideToCard(currentIndex); // ← 通常スライド
+    slideToCard(currentIndex);
   }
 
-  setTimeout(autoSlide, 1800);
+  // 次のスライドまで少し待つ
+  setTimeout(autoSlide, 1600);
 }
+
+// 自動スタート
+setTimeout(autoSlide, 1000);
+
+
+/* ====== 矢印ボタン ====== */
+const leftBtn = document.getElementById("leftBtn");
+const rightBtn = document.getElementById("rightBtn");
+
+/* 左ボタン：前へ */
+leftBtn.addEventListener("click", () => {
+  if (isAnimating) return;
+  isAnimating = true;
+
+  currentIndex--;
+  if (currentIndex < 0) currentIndex = cards.length - 1;
+
+  slideToCard(currentIndex);
+
+  setTimeout(() => (isAnimating = false), 450);
+});
+
+/* 右ボタン：次へ */
+rightBtn.addEventListener("click", () => {
+  if (isAnimating) return;
+  isAnimating = true;
+
+  currentIndex++;
+  if (currentIndex >= cards.length) currentIndex = 0;
+
+  slideToCard(currentIndex);
+
+  setTimeout(() => (isAnimating = false), 450);
+});
+
 
 
 
