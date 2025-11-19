@@ -34,53 +34,56 @@
 
 <section class="works-section" id="works">
   <h2 class="works-title">Works</h2>
-  <div class="works-grid">
 
-    <div class="work-card">
-      <div class="thumb">
-        <img src="https://github.com/optibeeprime/portfolio/blob/4d5028a50fd0620ebdbbea84128fca9d8745fb80/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-11-19%20171343.png" alt="オセロゲーム" style="width:100%; border-radius:6px;">
+  <div class="carousel-wrapper">
+    <button class="carousel-btn left" id="leftBtn">&#10094;</button>
+
+    <div class="works-carousel" id="carousel">
+      
+      <!-- オセロゲーム -->
+      <div class="work-card">
+        <div class="thumb">
+          <img src="https://github.com/optibeeprime/portfolio/blob/4d5028a50fd0620ebdbbea84128fca9d8745fb80/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-11-19%20171343.png" alt="オセロゲーム" />
+        </div>
+        <h3 class="work-name">オセロゲーム</h3>
+        <p class="work-desc">オセロを遊ぶことができます。ルールは通常のオセロと同様です。</p>
+        <a class="work-btn" href="https://colab.research.google.com/drive/1f8ZtMWUz8uaPC0JIRNRakRFn9mr3pofc?hl=ja">遊ぶ</a>
       </div>
-      <h3 class="work-name">オセロゲーム</h3>
-      <p class="work-desc">オセロを遊ぶことができます。ルールは通常のオセロと同様です。</p>
-      <a class="work-btn" href="https://colab.research.google.com/drive/1f8ZtMWUz8uaPC0JIRNRakRFn9mr3pofc?hl=ja">遊ぶ</a>
-    </div>
 
-    <div class="work-card">
-      <div class="thumb">
-        <img src="https://raw.githubusercontent.com/optibeeprime/my-portfolio/refs/heads/main/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202024-11-23%20202758.png" alt="高専祭プロジェクト" style="width:100%; border-radius:6px;">
+      <!-- 高専祭プロジェクト -->
+      <div class="work-card">
+        <div class="thumb">
+          <img src="https://raw.githubusercontent.com/optibeeprime/my-portfolio/refs/heads/main/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202024-11-23%20202758.png" alt="高専祭プロジェクト" />
+        </div>
+        <h3 class="work-name">高専祭プロジェクト</h3>
+        <p class="work-desc">高専祭では、ノベルゲームのキャラクター構想や設定を担当しました。</p>
+        <a class="work-btn" href="#">詳細を見る</a>
       </div>
-      <h3 class="work-name">高専祭プロジェクト</h3>
-      <p class="work-desc">高専祭では、ノベルゲームのキャラクター構想や設定を担当しました。</p>
-      <a class="work-btn" href="リンク先URL">詳細を見る</a>
-    </div>
 
-    <div class="work-card">
-      <div class="thumb">
-        <img src="https://raw.githubusercontent.com/optibeeprime/my-portfolio/refs/heads/main/fileapp.png" alt="ファイル整理アプリ" style="width:90%; border-radius:6px;">
+      <!-- ファイル整理アプリ -->
+      <div class="work-card">
+        <div class="thumb">
+          <img src="https://raw.githubusercontent.com/optibeeprime/my-portfolio/refs/heads/main/fileapp.png" alt="ファイル整理アプリ" />
+        </div>
+        <h3 class="work-name">ファイル整理アプリ</h3>
+        <p class="work-desc">複数のファイルを自動分類、重複ファイル検出機能も搭載。制作期間: 12/24~1/13</p>
+        <a class="work-btn" href="https://optibeeprime.github.io/FileOrganizer/">プロジェクトリンク / コード</a>
       </div>
-      <h3 class="work-name">ファイル整理アプリ</h3>
-      <p class="work-desc">複数のファイルを自動分類、重複ファイル検出機能も搭載。制作期間: 12/24~1/13</p>
-      <a class="work-btn" href="https://optibeeprime.github.io/FileOrganizer/">プロジェクトリンク / コード</a>
-    </div>
 
+      <!-- Lyrics-Player をカード化 -->
+      <div class="work-card">
+        <div class="thumb">
+          <video src="https://github.com/user-attachments/assets/d2556b04-7192-4827-89f2-d911bd57be88" controls></video>
+        </div>
+        <h3 class="work-name">音楽アプリ「Lyrics-Player」</h3>
+        <p class="work-desc">歌詞表示機能付き音楽プレイヤー。lrcファイル対応、手動入力も可能。</p>
+        <a class="work-btn" href="https://github.com/optibeeprime/Lyrics-Player">コード</a>
+      </div>
+
+    </div>
+    
+    <button class="carousel-btn right" id="rightBtn">&#10095;</button>
   </div>
-</section>
-
-<section class="extra-project">
-  <div class="project">
-    <h3>歌詞表示機能付き音楽アプリ「Lyrics-Player」</h3>
-    <p>歌詞表示機能付き音楽プレイヤー。lrcファイル対応、手動入力も可能。</p>
-    <video src="https://github.com/user-attachments/assets/d2556b04-7192-4827-89f2-d911bd57be88" controls width="100%" height="100%"></video>
-    <p><a href="https://github.com/optibeeprime/Lyrics-Player">コード</a></p>
-  </div>
-</section>
-
-<section id="experience">
-  <h2>経験</h2>
-  <ul>
-    <li><strong>プログラミング言語:</strong> Python, Arduino, Scratch</li>
-    <li><strong>ツール:</strong> Git/GitHub, VSCode, Arduino, MakeCode, Tinkercad</li>
-  </ul>
 </section>
 
 </body>
