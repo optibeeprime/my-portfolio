@@ -150,15 +150,22 @@ function slideToCard(index) {
 
 // スライドループ
 function autoSlide() {
-  currentIndex = (currentIndex + 1) % cards.length;
-  slideToCard(currentIndex);
+  const cardWidth = getCardWidth();
+  const maxScroll = (cards.length - 1) * cardWidth;
 
-  // 停止時間（カードで少し止まる）
-  setTimeout(autoSlide, 1800); 
+  currentIndex++;
+
+  // 末尾の次 → 一瞬で先頭へジャンプ
+  if (currentIndex >= cards.length) {
+    currentIndex = 0;
+    carousel.scrollTo({ left: 0 }); // ← 即座に戻す（アニメなし）
+  } else {
+    slideToCard(currentIndex); // ← 通常スライド
+  }
+
+  setTimeout(autoSlide, 1800);
 }
 
-// 初回遅延後に開始
-setTimeout(autoSlide, 1500);
 
 
 /* ③ 一覧モーダル */
