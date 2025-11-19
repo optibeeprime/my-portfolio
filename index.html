@@ -127,17 +127,39 @@
 =============================== -->
 <script>
 /* 手動スライドボタン */
-const carousel = document.getElementById("carousel");
-leftBtn.onclick = () => carousel.scrollLeft -= 350;
-rightBtn.onclick = () => carousel.scrollLeft += 350;
+/* =============== カードごと自動スライド =============== */
 
-/* ① Works 自動スライド */
-setInterval(() => {
-  carousel.scrollLeft += 1;
-  if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth) {
-    carousel.scrollLeft = 0;
-  }
-}, 15);
+const carousel = document.getElementById("carousel");
+const cards = document.querySelectorAll(".work-card");
+let currentIndex = 0;
+
+// 余白を含めたカード1枚分の幅を取得
+function getCardWidth() {
+  const card = cards[0];
+  return card.getBoundingClientRect().width + 40; // gap: 40px
+}
+
+// カード位置へスムーズ移動する関数
+function slideToCard(index) {
+  const targetX = index * getCardWidth();
+  carousel.scrollTo({
+    left: targetX,
+    behavior: "smooth"
+  });
+}
+
+// スライドループ
+function autoSlide() {
+  currentIndex = (currentIndex + 1) % cards.length;
+  slideToCard(currentIndex);
+
+  // 停止時間（カードで少し止まる）
+  setTimeout(autoSlide, 1800); 
+}
+
+// 初回遅延後に開始
+setTimeout(autoSlide, 1500);
+
 
 /* ③ 一覧モーダル */
 const modal = document.getElementById("modal");
