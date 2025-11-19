@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;   /* ②ページ全体スムーススクロール */
+}
+
 body {
   margin: 0;
   background: #111;
@@ -272,5 +276,59 @@ body {
   display: inline-block;
   text-align: left;
   line-height: 2;
+  margin-top: 20px;
+}
+
+.list-btn {
+  margin-top: 40px;
+  padding: 12px 28px;
+  background: #d4c27a;
+  border: none;
+  border-radius: 6px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.25s;
+}
+.list-btn:hover {
+  opacity: 0.75;
+}
+
+/* モーダル */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal-content {
+  background: #1a1a1a;
+  padding: 40px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 900px;
+  color: #fff;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+.modal-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
   margin-top: 20px;
 }
