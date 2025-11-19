@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="style.css" />
   <title>Koshiro's Portfolio</title>
 </head>
+
 <body>
 
 <header class="premium-header">
@@ -32,6 +33,9 @@
   </div>
 </section>
 
+<!-- ============================
+         WORKS
+=============================== -->
 <section class="works-section" id="works">
   <h2 class="works-title">Works</h2>
 
@@ -70,7 +74,7 @@
         <a class="work-btn" href="https://optibeeprime.github.io/FileOrganizer/">プロジェクトリンク / コード</a>
       </div>
 
-      <!-- Lyrics-Player をカード化 -->
+      <!-- Lyrics-Player -->
       <div class="work-card">
         <div class="thumb">
           <video src="https://github.com/user-attachments/assets/d2556b04-7192-4827-89f2-d911bd57be88" controls></video>
@@ -81,10 +85,33 @@
       </div>
 
     </div>
-    
+
     <button class="carousel-btn right" id="rightBtn">&#10095;</button>
   </div>
 </section>
+
+<!-- 経験 -->
+<section id="experience">
+  <h2>経験</h2>
+  <ul>
+    <li><strong>プログラミング言語:</strong> Python, Arduino, Scratch</li>
+    <li><strong>ツール:</strong> Git/GitHub, VSCode, Arduino, MakeCode, Tinkercad</li>
+  </ul>
+</section>
+
+<script>
+  const carousel = document.getElementById("carousel");
+  const leftBtn = document.getElementById("leftBtn");
+  const rightBtn = document.getElementById("rightBtn");
+
+  rightBtn.addEventListener("click", () => {
+    carousel.scrollLeft += 350;
+  });
+
+  leftBtn.addEventListener("click", () => {
+    carousel.scrollLeft -= 350;
+  });
+</script>
 
 </body>
 </html>
