@@ -148,12 +148,50 @@ body {
 }
 /* 経験セクションタイトル */
 #experience h2 {
-  font-family: "Poppins", sans-serif; /* かっこいいサンセリフ */
-  font-size: 2.4rem;                 /* Works と同じサイズ */
-  font-weight: 300;                   /* 軽めの文字 */
-  letter-spacing: 0.06em;             /* 微調整でスタイリッシュに */
-  color: #f5f2e8;                     /* Works の色に合わせる */
+  font-family: "Poppins", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: #f5f2e8;
   margin-bottom: 40px;
+  text-align: center;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 24px;
+  justify-items: center;
+  align-items: center;
+}
+
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #121212;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 0 16px rgba(212,194,122,0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.skill-card i {
+  font-size: 2rem;
+  color: #d4c27a;
+  margin-bottom: 8px;
+}
+
+.skill-card span {
+  color: #f5f2e8;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 24px rgba(212,194,122,0.4);
 }
 
 
