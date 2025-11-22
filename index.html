@@ -165,6 +165,22 @@ originalCards.forEach(card => {
   modalList.appendChild(clone);
 });
 
+const cursor = document.querySelector(".custom-cursor");
+
+// マウス追従
+document.addEventListener("mousemove", e => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+});
+
+// ホバーで拡大させたい要素（例: work-card, ボタンなど）
+const hoverTargets = document.querySelectorAll(".work-card, .work-btn, .list-btn");
+
+hoverTargets.forEach(el => {
+  el.addEventListener("mouseenter", () => cursor.classList.add("hovering"));
+  el.addEventListener("mouseleave", () => cursor.classList.remove("hovering"));
+});
+
 
 listBtn.onclick = () => modal.style.display = "flex";
 modalClose.onclick = () => modal.style.display = "none";
