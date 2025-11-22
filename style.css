@@ -377,3 +377,19 @@ body {
 .works-carousel::-webkit-scrollbar {
   display: none;               /* Chrome / Edge / Brave / Safari */
 }
+
+* {
+  cursor: none; /* 既存カーソル消す */
+}
+
+.custom-cursor {
+  position: fixed;
+  pointer-events: none;
+  width: 12px;
+  height: 12px;
+  background: #d4c27a;
+  border-radius: 50%;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
