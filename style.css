@@ -30,7 +30,10 @@ body {
   margin: 0;
   letter-spacing: 0.08em;
 
-  /* 背景グラデーション */
+  /* 基本のゴールド色 */
+  color: #d4c27a;
+
+  /* 背景グラデーションで光を作る */
   background: linear-gradient(
     90deg,
     #d4c27a 0%,
@@ -41,24 +44,26 @@ body {
   );
   background-size: 200% 100%;
 
-  /* 文字にグラデーションを適用 */
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; /* Chrome / Brave / Edge */
-  background-clip: text;                /* Firefox用 */
+  -webkit-text-fill-color: transparent; /* Chrome/Edge */
+  background-clip: text;                /* Firefox */
   color: transparent;
 
-  /* 光が流れるアニメーション */
+  /* アニメーション */
   animation: shine 2.5s linear infinite, pop 2.5s ease-in-out infinite;
 }
 
+/* 光が走るアニメーション */
 @keyframes shine {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
 
+/* 光に合わせて少し膨らむ立体感 */
 @keyframes pop {
-  0%, 100% { transform:
-
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
 
 
 
