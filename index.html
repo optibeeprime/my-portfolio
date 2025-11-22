@@ -131,33 +131,38 @@
 /* ====== カルーセル無限ループ化 ====== */
 /* ====== 完全無限ループカルーセル ====== */
 
-const carousel = document.getElementById("carousel");
-let cards = Array.from(carousel.querySelectorAll(".work-card"));
-let currentIndex = 0;
+/* ====== 完全無限ループカルーセル（ジャンプが見えない） ====== */
 
-/* カード複製（2セットにする） */
-cards.forEach(card => {
+const carousel = document.getElementById("carousel");
+let originalCards = Array.from(carousel.querySelectorAll(".work-card"));
+
+/* 1セット複製（合計2セットにする） */
+originalCards.forEach(card => {
   carousel.appendChild(card.cloneNode(true));
 });
 
-const cardWidth = cards[0].getBoundingClientRect().width + 40; // gap40
-const totalCards = cards.length;      // 元カード数
-const loopWidth = totalCards * cardWidth;  // 1セット分の長さ
+const cardWidth = originalCards[0].getBoundingClientRect().width + 40; // gap40
+const setLength = originalCards.length * cardWidth; // 1セット分の横幅
 
-/* 自動スライド */
-function autoSlide() {
-  currentIndex++;
-  carousel.scrollLeft = currentIndex * cardWidth;
+/* 毎フレーム少しずつ動かす方式（スムース禁止） */
+let scrollPos = 0;
 
-  // 1セット分を超えたら自然にリセット
-  if (carousel.scrollLeft >= loopWidth) {
-    carousel.scrollLeft -= loopWidth; // ← ユーザーに見えないリセット
+function loop() {
+  scrollPos += 2;   // ← スライド速度。好みで調整
+
+  // スクロールさせる
+  carousel.scrollLeft = scrollPos;
+
+  // 1セット分進んだら、同じ見た目の位置へ瞬時に戻す
+  if (scrollPos >= setLength) {
+    scrollPos -= setLength;
+    carousel.scrollLeft = scrollPos;  // ← この瞬間移動は絶対に見えない
   }
 
-  setTimeout(autoSlide, 1600);
+  requestAnimationFrame(loop);
 }
 
-setTimeout(autoSlide, 1200);
+requestAnimationFrame(loop);
 
 
 
