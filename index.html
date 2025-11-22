@@ -154,24 +154,27 @@ function slideToCard(index) {
   carousel.scrollTo({ left: x, behavior: "smooth" });
 }
 
-/* ====== 自動スライド（素早くスライド → 少し停止） ====== */
 function autoSlide() {
   currentIndex++;
 
-  // 末尾を超えたら先頭へ瞬間移動
-  if (currentIndex >= cards.length) {
-    currentIndex = 0;
-    carousel.scrollTo({ left: 0 }); // ← 即ジャンプ（スムーズ無し）
-  } else {
-    slideToCard(currentIndex);
+  const cardWidth = getCardWidth();
+  const maxIndex = cards.length / 2; // 元カード枚数
+
+  carousel.scrollTo({ left: currentIndex * cardWidth, behavior: "smooth" });
+
+  // 複製部に入ったら先頭へ瞬間ジャンプ
+  if (currentIndex >= maxIndex) {
+    setTimeout(() => {
+      carousel.scrollTo({ left: 0 }); // 位置だけ戻す
+      currentIndex = 0;
+    }, 450);
   }
 
-  // 次のスライドまで少し待つ
   setTimeout(autoSlide, 1600);
 }
 
-// 自動スタート
 setTimeout(autoSlide, 1000);
+
 
 
 /* ====== 矢印ボタン ====== */
