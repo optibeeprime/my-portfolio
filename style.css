@@ -306,6 +306,17 @@ body {
   z-index: 100;
 }
 
+.modal-card {
+  background: #121212;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 0 24px rgba(0,0,0,0.35);
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+
 .modal-content {
   background: #1a1a1a;
   padding: 40px;
