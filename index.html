@@ -142,42 +142,6 @@ function loop() {
 
 requestAnimationFrame(loop);
 
-
-
-
-/* ====== 矢印ボタン ====== */
-const leftBtn = document.getElementById("leftBtn");
-const rightBtn = document.getElementById("rightBtn");
-
-/* 左ボタン：前へ */
-leftBtn.addEventListener("click", () => {
-  if (isAnimating) return;
-  isAnimating = true;
-
-  currentIndex--;
-  if (currentIndex < 0) currentIndex = cards.length - 1;
-
-  slideToCard(currentIndex);
-
-  setTimeout(() => (isAnimating = false), 450);
-});
-
-/* 右ボタン：次へ */
-rightBtn.addEventListener("click", () => {
-  if (isAnimating) return;
-  isAnimating = true;
-
-  currentIndex++;
-  if (currentIndex >= cards.length) currentIndex = 0;
-
-  slideToCard(currentIndex);
-
-  setTimeout(() => (isAnimating = false), 450);
-});
-
-
-
-
 /* ③ 一覧モーダル */
 const modal = document.getElementById("modal");
 const listBtn = document.getElementById("listViewBtn");
