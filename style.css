@@ -386,18 +386,17 @@ body {
 /* カスタムカーソル本体 */
 .custom-cursor {
   position: fixed;
-  pointer-events: none;      /* カーソルがクリックを邪魔しない */
+  pointer-events: none;
   width: 12px;
   height: 12px;
   background: #d4c27a;
   border-radius: 50%;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, transform 0.1s ease;
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
 }
 
-/* ホバー時に拡大する要素を指定 */
-.hover-target:hover ~ .custom-cursor,
+/* ホバー時に拡大 */
 .custom-cursor.hovering {
   width: 24px;
   height: 24px;
