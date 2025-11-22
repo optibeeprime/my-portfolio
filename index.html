@@ -130,7 +130,7 @@
 
 /* ====== カルーセル無限ループ化 ====== */
 const carousel = document.getElementById("carousel");
-let cards = Array.from(document.querySelectorAll(".work-card"));
+let cards = Array.from(carousel.querySelectorAll(".work-card"));  // ← 修正
 let currentIndex = 0;
 
 /* カード複製（無限ループ用） */
@@ -140,32 +140,24 @@ cards.forEach(card => {
   carousel.appendChild(clone);
 });
 
-/* カードリスト再取得（複製込み） */
-cards = Array.from(document.querySelectorAll(".work-card"));
+/* 複製後のカードリスト再取得 */
+cards = Array.from(carousel.querySelectorAll(".work-card"));  // ← 修正
 
 function getCardWidth() {
-  return cards[0].getBoundingClientRect().width + 40; // gap
-}
-
-
-/* スムーズにカードへスライド */
-function slideToCard(index) {
-  const x = index * getCardWidth();
-  carousel.scrollTo({ left: x, behavior: "smooth" });
+  return cards[0].getBoundingClientRect().width + 40;
 }
 
 function autoSlide() {
   currentIndex++;
 
   const cardWidth = getCardWidth();
-  const maxIndex = cards.length / 2; // 元カード枚数
+  const originalCount = cards.length / 2;
 
   carousel.scrollTo({ left: currentIndex * cardWidth, behavior: "smooth" });
 
-  // 複製部に入ったら先頭へ瞬間ジャンプ
-  if (currentIndex >= maxIndex) {
+  if (currentIndex >= originalCount) {
     setTimeout(() => {
-      carousel.scrollTo({ left: 0 }); // 位置だけ戻す
+      carousel.scrollTo({ left: 0 });
       currentIndex = 0;
     }, 450);
   }
@@ -174,6 +166,7 @@ function autoSlide() {
 }
 
 setTimeout(autoSlide, 1000);
+
 
 
 
