@@ -368,3 +368,12 @@ body {
   scrollbar-width: thin;
   scrollbar-color: #d4c27a #0f0f0f;
 }
+
+.works-carousel {
+  overflow-x: scroll;
+  scrollbar-width: none;       /* Firefox */
+}
+
+.works-carousel::-webkit-scrollbar {
+  display: none;               /* Chrome / Edge / Brave / Safari */
+}
