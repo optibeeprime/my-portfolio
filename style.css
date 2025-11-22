@@ -146,6 +146,16 @@ body {
   color: #f5f2e8;
   margin-bottom: 60px;
 }
+/* 経験セクションタイトル */
+#experience h2 {
+  font-family: "Poppins", sans-serif; /* かっこいいサンセリフ */
+  font-size: 2.4rem;                 /* Works と同じサイズ */
+  font-weight: 300;                   /* 軽めの文字 */
+  letter-spacing: 0.06em;             /* 微調整でスタイリッシュに */
+  color: #f5f2e8;                     /* Works の色に合わせる */
+  margin-bottom: 40px;
+}
+
 
 /* 横スクロール */
 .carousel-wrapper {
