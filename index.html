@@ -166,9 +166,9 @@ originalCards.forEach(card => {
 });
 
 const cursor = document.querySelector(".custom-cursor");
-let mouseX = 0, mouseY = 0;       // マウスの現在位置
-let currentX = 0, currentY = 0;   // カーソルの表示位置
-const speed = 0.15;               // 追従スピード（小さいほど遅く滑らか）
+let mouseX = 0, mouseY = 0;
+let currentX = 0, currentY = 0;
+const speed = 0.15;
 
 // マウス座標を取得
 document.addEventListener("mousemove", e => {
@@ -176,7 +176,7 @@ document.addEventListener("mousemove", e => {
   mouseY = e.clientY;
 });
 
-// アニメーションで滑らかに追従
+// 滑らかに追従
 function animateCursor() {
   currentX += (mouseX - currentX) * speed;
   currentY += (mouseY - currentY) * speed;
@@ -188,13 +188,14 @@ function animateCursor() {
 }
 animateCursor();
 
-// hover で拡大する要素
+// hover時に拡大＋光らせる要素
 const hoverTargets = document.querySelectorAll(".work-card, .work-btn, .list-btn");
 
 hoverTargets.forEach(el => {
   el.addEventListener("mouseenter", () => cursor.classList.add("hovering"));
   el.addEventListener("mouseleave", () => cursor.classList.remove("hovering"));
 });
+
 
 
 listBtn.onclick = () => modal.style.display = "flex";
