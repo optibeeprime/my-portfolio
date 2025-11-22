@@ -112,11 +112,7 @@
     <h2>Works 一覧</h2>
 
     <div class="modal-list">
-      <!-- 同じカードを再利用（簡易版） -->
-      <div class="work-card">…</div>
-      <div class="work-card">…</div>
-      <div class="work-card">…</div>
-      <div class="work-card">…</div>
+
     </div>
   </div>
 </div>
@@ -197,6 +193,23 @@ rightBtn.addEventListener("click", () => {
 const modal = document.getElementById("modal");
 const listBtn = document.getElementById("listViewBtn");
 const modalClose = document.getElementById("modalClose");
+
+const modalList = document.querySelector(".modal-list");
+
+originalCards.forEach(card => {
+  const clone = card.cloneNode(true);
+
+  // work-card → modal-card に変更
+  clone.classList.remove("work-card");
+  clone.classList.add("modal-card");
+
+  // 画像・動画の高さ調整（必要なら）
+  const media = clone.querySelector("img, video");
+  if (media) media.style.height = "160px";
+
+  modalList.appendChild(clone);
+});
+
 
 listBtn.onclick = () => modal.style.display = "flex";
 modalClose.onclick = () => modal.style.display = "none";
