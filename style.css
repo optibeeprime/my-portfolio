@@ -153,17 +153,17 @@ body {
   max-width: 1200px;
   margin: 0 auto;
 }
-
 .works-carousel {
   display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
+  flex-wrap: nowrap;         /* ← セミコロン必須 */
+  overflow-x: auto;         /* ← auto にして横スクロールを許可（スクロールバーは下で非表示に） */
+  scroll-behavior: auto;    /* ← JSで制御するので smooth は消す（任意） */
   gap: 40px;
   padding-bottom: 20px;
 }
 
 .works-carousel::-webkit-scrollbar {
-  display: none;
+  display: none; /* スクロールバーを非表示にする（Chrome/Safari） */
 }
 
 /* カード */
@@ -176,8 +176,9 @@ body {
   transition: box-shadow 0.3s ease;
   min-width: 300px;
   max-width: 300px;
-  flex-shrink: 0;
+  flex-shrink: 0;          /* ← 必須（縮まないように） */
 }
+
 
 .work-card:hover {
   box-shadow: 0 0 28px rgba(212,194,122,0.18);
