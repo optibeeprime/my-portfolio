@@ -166,14 +166,29 @@ originalCards.forEach(card => {
 });
 
 const cursor = document.querySelector(".custom-cursor");
+let mouseX = 0, mouseY = 0;       // マウスの現在位置
+let currentX = 0, currentY = 0;   // カーソルの表示位置
+const speed = 0.15;               // 追従スピード（小さいほど遅く滑らか）
 
-// マウス追従
+// マウス座標を取得
 document.addEventListener("mousemove", e => {
-  cursor.style.left = e.clientX + "px";
-  cursor.style.top = e.clientY + "px";
+  mouseX = e.clientX;
+  mouseY = e.clientY;
 });
 
-// ホバーで拡大させたい要素（例: work-card, ボタンなど）
+// アニメーションで滑らかに追従
+function animateCursor() {
+  currentX += (mouseX - currentX) * speed;
+  currentY += (mouseY - currentY) * speed;
+
+  cursor.style.left = currentX + "px";
+  cursor.style.top = currentY + "px";
+
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+// hover で拡大する要素
 const hoverTargets = document.querySelectorAll(".work-card, .work-btn, .list-btn");
 
 hoverTargets.forEach(el => {
