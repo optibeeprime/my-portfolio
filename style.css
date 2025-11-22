@@ -378,18 +378,28 @@ body {
   display: none;               /* Chrome / Edge / Brave / Safari */
 }
 
+/* 既存カーソル非表示 */
 * {
-  cursor: none; /* 既存カーソル消す */
+  cursor: none;
 }
 
+/* カスタムカーソル本体 */
 .custom-cursor {
   position: fixed;
-  pointer-events: none;
+  pointer-events: none;      /* カーソルがクリックを邪魔しない */
   width: 12px;
   height: 12px;
   background: #d4c27a;
   border-radius: 50%;
   z-index: 9999;
   transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, transform 0.1s ease;
 }
 
+/* ホバー時に拡大する要素を指定 */
+.hover-target:hover ~ .custom-cursor,
+.custom-cursor.hovering {
+  width: 24px;
+  height: 24px;
+  background: #f1d98d;
+}
