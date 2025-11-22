@@ -28,9 +28,32 @@ body {
   font-weight: 300;
   font-size: 2.6rem;
   margin: 0;
-  color: #d4c27a;
+  color: #d4c27a; /* 通常色 */
   letter-spacing: 0.08em;
+  
+  /* 光るアニメーション用 */
+  background: linear-gradient(
+    90deg,
+    #d4c27a 0%,
+    #fff1a8 50%,
+    #d4c27a 100%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shine 2.5s linear infinite;
 }
+
+@keyframes shine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
 
 .title-jp {
   font-family: "Noto Sans JP", sans-serif;
