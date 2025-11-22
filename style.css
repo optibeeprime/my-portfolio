@@ -383,7 +383,7 @@ body {
   cursor: none;
 }
 
-/* カスタムカーソル本体 */
+/* カスタムカーソル */
 .custom-cursor {
   position: fixed;
   pointer-events: none;
@@ -393,12 +393,14 @@ body {
   border-radius: 50%;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* ホバー時に拡大 */
+/* hover時に拡大＋光るグローエフェクト */
 .custom-cursor.hovering {
   width: 24px;
   height: 24px;
   background: #f1d98d;
+  box-shadow: 0 0 12px 4px rgba(212, 194, 122, 0.7),
+              0 0 24px 8px rgba(212, 194, 122, 0.4);
 }
