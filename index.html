@@ -128,15 +128,25 @@
 <script>
 /* ====== カルーセル ====== */
 
+/* ====== カルーセル無限ループ化 ====== */
 const carousel = document.getElementById("carousel");
-const cards = document.querySelectorAll(".work-card");
-
+let cards = Array.from(document.querySelectorAll(".work-card"));
 let currentIndex = 0;
-let isAnimating = false; // ← スライド中の連打防止
+
+/* カード複製（無限ループ用） */
+cards.forEach(card => {
+  const clone = card.cloneNode(true);
+  clone.classList.add("clone");
+  carousel.appendChild(clone);
+});
+
+/* カードリスト再取得（複製込み） */
+cards = Array.from(document.querySelectorAll(".work-card"));
 
 function getCardWidth() {
-  return cards[0].getBoundingClientRect().width + 40; // gap 40px
+  return cards[0].getBoundingClientRect().width + 40; // gap
 }
+
 
 /* スムーズにカードへスライド */
 function slideToCard(index) {
