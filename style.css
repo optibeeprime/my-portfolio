@@ -235,6 +235,7 @@ body {
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
+  overflow: hidden;
 }
 .works-carousel {
   display: flex;
@@ -328,11 +329,11 @@ body {
 }
 
 .carousel-btn.left {
-  left: -20px;
+  left: 5px;
 }
 
 .carousel-btn.right {
-  right: -20px;
+  right: 5px;
 }
 
 /* ----------------------
@@ -556,5 +557,26 @@ body {
 .contact-box:hover {
   transform: translateY(-4px);
   box-shadow: 0 0 26px rgba(212,194,122,0.45);
+}
+
+/* スマホで横スクロールが出るのを強制的に防ぐ */
+body, html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* レイアウト調整：左右のはみ出しを無効化 */
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  * {
+    cursor: auto !important;
+  }
+  .custom-cursor {
+    display: none !important;
+  }
 }
 
