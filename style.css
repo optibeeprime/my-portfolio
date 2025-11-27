@@ -502,3 +502,59 @@ body {
                 0 0 20px 6px rgba(212,194,122,0.35);
   }
 }
+
+/* ----------------------
+      CONTACT
+----------------------- */
+#contact {
+  padding: 100px 40px;
+  background: #0c0c0c;
+  text-align: center;
+  color: #fff;
+  border-top: 1px solid rgba(212, 194, 122, 0.25);
+}
+
+#contact h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 300;
+  color: #f5f2e8;
+  margin-bottom: 30px;
+  letter-spacing: 0.06em;
+}
+
+.contact-text {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 30px;
+}
+
+.contact-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 26px;
+  background: #121212;
+  border-radius: 10px;
+  box-shadow: 0 0 18px rgba(212,194,122,0.25);
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.contact-box i {
+  font-size: 1.6rem;
+  color: #d4c27a;
+}
+
+.contact-box span {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+  color: #f5f2e8;
+}
+
+.contact-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 26px rgba(212,194,122,0.45);
+}
+
